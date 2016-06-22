@@ -1,10 +1,13 @@
-
-
-<table>
-<% @topics.each do |t| %>
+<table class="table">
+<tr>
+  <th>Title</th>
+  <th>Author</th>
+</tr>
+  <% @topics.each do |t| %>
 
   <tr>
     <td><%= t.title %></td>
+    <td>?</td>
   </tr>
 
 <% end %>
