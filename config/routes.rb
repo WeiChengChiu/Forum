@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :topics do
-    resources :comments
+    resources :comments, :controller => "topic_comments"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

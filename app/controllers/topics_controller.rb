@@ -8,6 +8,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @comment = Comment.new
+
   end
 
   def new
@@ -27,7 +29,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:title, :content)
+    params.require(:topic, :comment).permit(:title, :content)
   end
 
 end

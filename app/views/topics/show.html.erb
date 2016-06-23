@@ -1,2 +1,41 @@
-<%= @topic.title %>
-<%= @topic.content %>
+<h2><%= @topic.title %><small><%= @topic.author_name %></small></%></h2>
+
+<%= simple_format @topic.content %>
+
+<p class="text-right"><%= @topic.created_at.to_s(:short) %></p>
+
+<!--  leave a message  -->
+<h2>New comment</h2>
+<div id="comment-form">
+
+<%= form_for @comment, :url => topic_comments_path(@topic) do |f| %>
+
+  <div class="form-group">
+    <%= f.text_area :content, :class => "from-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "create", :class => "btn btn-primary" %>
+  </div>
+
+<% end %>
+</div>
+
+<hr>
+
+<!-- comment display -->
+<% @topic.comments.each do |comment| %>
+
+  <div class="media">
+  <div class="media-left">
+    <a href="#">
+       <img class="media-object" src="..." alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.content %></h4>
+    <%= simple_format comment.content %>
+    <p class="text-right"><%= comment.created_at.to_s(:short) %></p>
+  </div>
+
+<% end %>
