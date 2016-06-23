@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
   def index
     @q = Topic.ransack(params[:q])
-    @topics = Topic.page(params[:page])
+    @topics = @q.result(distinic: true).page(params[:page])
   end
 
   def show
