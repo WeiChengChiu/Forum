@@ -1,6 +1,4 @@
 
-
-
 <%= link_to "New Topic", new_topic_path, :class => "btn btn-primary" %>
 
 <%= search_form_for @q do |f| %>
@@ -12,9 +10,9 @@
 <% end %>
 
 <p>
-<% Category.all.each do |c| %>
-  <%= link_to c.name, topics_path( :cid => c ) %>
-<% end %>
+  <% Category.all.each do |c| %>
+    <%= link_to c.name, topics_path( :cid => c ) %>
+  <% end %>
 </p>
 
 <%= sort_link(@q, :comments_count, "回覆數", default_order: :desc)%>
