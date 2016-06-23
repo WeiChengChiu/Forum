@@ -8,18 +8,22 @@
 
 <%= form_for @topic  do |f| %>
 
-   <div class="form-group">
-     <%= f.label :title, "Title" %>
-     <%= f.text_field :title, :class => "form-control" %>
-   </div>
+    <div class="form-group">
+      <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+    </div>
 
-   <div class="form-group">
-     <%= f.label :content, "Content" %>
-     <%= f.text_area :content, :class => "form-control" %>
-   </div>
+    <div class="form-group">
+      <%= f.label :title, "Title" %>
+      <%= f.text_field :title, :class => "form-control" %>
+    </div>
 
-   <div class="form-group">
-     <%= f.submit :class => "btn btn-primary" %>
-   </div>
+    <div class="form-group">
+      <%= f.label :content, "Content" %>
+      <%= f.text_area :content, :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
 
 <% end %>

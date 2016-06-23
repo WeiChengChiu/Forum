@@ -1,5 +1,11 @@
 <h2><%= @topic.title %><small><%= @topic.author_name %></small></%></h2>
 
+<p>
+  <% @topic.categories.each do |c| %>
+    <%= c.name %>
+  <% end %>
+</p>
+
 <%= simple_format @topic.content %>
 
 <p class="text-right"><%= @topic.created_at.to_s(:short) %></p>

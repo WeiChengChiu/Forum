@@ -3,8 +3,15 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, :only => [:new, :create, :destroy]
 
   def index
-    @q = Topic.ransack(params[:q])
-    @topics = @q.result(distinic: true).page(params[:page])
+    if params[:cid]
+       category = Category.find(params[:cid])
+       @topics = category.topics
+    else
+       @topics = Topic.all
+    end
+
+       @q = @topics.ransack(params[:q])
+       @topics = @q.result(distinic: true).page(params[:page])
   end
 
   def show
@@ -30,7 +37,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic, :comment).permit(:title, :content)
+    params.require(:topic, :comment).permit(:title, :content, :category_ids => [])
   end
 
 end
