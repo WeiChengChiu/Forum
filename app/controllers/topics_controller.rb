@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
   end
 
   def index
+
     if params[:cid]
        category = Category.find(params[:cid])
        @topics = category.topics
