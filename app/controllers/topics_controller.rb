@@ -37,12 +37,22 @@ class TopicsController < ApplicationController
     end
   end
 
+  def destroy
+    @topic = Topic.find( params(:id) )
+
+    if @topic.can_delete_by?(current_user)
+      @topic.destroy
+    end
+
+    redirect_to topics_path
+  end
 
   private
 
   def topic_params
-    params.require(:topic, :comment).permit(:title, :content, :category_ids => [])
+    params.require(:topic).permit(:title, :content, :category_ids => [])
   end
+
 
 end
 

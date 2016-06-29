@@ -41,7 +41,7 @@
 
       <%= yield %>
 
-      <% if current_user && current_user.admin? %>
+      <% if current_user && current_user.is_admin? %>
             <% link_to "admin", admin_topics_path %>
       <% end %>
 
