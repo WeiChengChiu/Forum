@@ -17,6 +17,8 @@
         <h1><%= link_to "Forum", root_path %></h1>
       </div>
 
+    <h1>Admin Interface!</h1>
+
       <% if flash[:notice] %>
       <div class="alert alert-success"><%= flash[:notice] %></div>
       <% end %>
@@ -40,7 +42,7 @@
       <%= yield %>
 
       <% if current_user && current_user.admin? %>
-            <%= link_to "admin", admin_topics_path %>
+            <% link_to "admin", admin_topics_path %>
       <% end %>
 
 
