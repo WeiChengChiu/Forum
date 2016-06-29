@@ -26,6 +26,7 @@
     <th>Title</th>
     <th>Author</th>
     <th>Comments</th>
+    <th>Views</th>
     <th>Post at</th>
   </tr>
 
@@ -34,6 +35,7 @@
     <td><%= link_to t.title, topic_path(t) %></td>
     <td><%= t.author_name %></td>
     <td><%= t.comments_count %></td>
+    <td><%= t.views_count %></td>
     <td><%= t.created_at.to_s(:sort) %></td>
   </tr>
   <% end %>
