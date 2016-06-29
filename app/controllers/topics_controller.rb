@@ -24,6 +24,7 @@ class TopicsController < ApplicationController
     unless cookies["view-topic-#{@topic.id}"]
       cookies["view-topic-#{@topic.id}"] = "true"
       @topic.view!
+    end
 
     @comment = Comment.new
 
