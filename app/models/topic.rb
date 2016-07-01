@@ -17,7 +17,7 @@ class Topic < ActiveRecord::Base
 
 
   def can_delete_by?(u)
-    ( self.user == u ) || ( u.is_admin? )
+    ( self.user == u ) || (u.is_admin?)
   end
 
 end
